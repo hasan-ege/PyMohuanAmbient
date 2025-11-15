@@ -4,7 +4,7 @@ This project is a Python script that provides ambient lighting (screen synchroni
 
 It reads the average color of your PC screen in real-time and sends that color directly to the bulb, including all intermediate colors (orange, purple, etc.).
 
-
+[Image of PC monitor with ambient light syncing]
 
 ## The Protocol (The "EVLAT" Discovery)
 
@@ -43,3 +43,56 @@ Install all the required Python libraries using the `requirements.txt` file:
 
 ```bash
 pip install -r requirements.txt
+
+3. Configure the Script
+
+Choose which script you want to use (the tray version is highly recommended).
+
+Open sync_ambient_tray.pyw (or sync_ambient_headless.pyw) with a text editor (like Notepad or VS Code) and change the MAC address at the top to the one you found in Step 1.
+Python
+
+# --- SETTINGS (CHANGE THIS) ---
+MAC_ADDRESS = "FF:FF:11:3F:B4:44" # <-- PASTE YOUR MAC ADDRESS HERE
+# --- END OF SETTINGS ---
+
+💻 How to Run
+
+✅ Option 1: System Tray (Recommended)
+
+This runs the script in the background with an icon in your system tray (next to the clock) so you can easily quit it.
+
+    File: sync_ambient_tray.pyw
+
+    To Run: Just double-click the file. A blue circle icon will appear in your system tray.
+
+    To Stop: Right-click the blue icon and select "Exit". The script will turn off the bulb and close properly.
+
+⚠️ Option 2: Headless (Invisible)
+
+This is the .pyw method. It runs completely invisibly with no terminal and no icon.
+
+    File: sync_ambient_headless.pyw
+
+    To Run: Double-click the file.
+
+    To Stop: You must use the Task Manager (Ctrl+Shift+Esc), go to the "Details" tab, find pythonw.exe, and click "End Task".
+
+⭐ Bonus: Run on Startup
+
+    Press Windows Key + R to open the "Run" dialog.
+
+    Type shell:startup and press Enter. This will open your personal Startup folder.
+
+    Create a shortcut to sync_ambient_tray.pyw and drag that shortcut into the Startup folder.
+
+
+---
+
+## `requirements.txt`
+
+```txt
+bleak
+numpy
+mss
+pystray
+pillow
